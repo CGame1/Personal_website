@@ -10,17 +10,18 @@
     <header class="top-header">
         <div class="container header-inner">
             <div class="header-left">
-                <h1 class="site-title"><a href="index.html">Chloe Game</a></h1>
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                    <img src="data/photo_prof.jpg" alt="Chloe Game" class="header-photo" loading="lazy" decoding="async">
+                    <h1 class="site-title"><a href="index.html">Chloe Game</a></h1>
+                </div>
             </div>
             <nav class="top-nav" aria-label="Primary">
                 <ul>
                     <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#research">Research</a></li>
-                    <li><a href="index.html#selected-publications">Selected</a></li>
-                    <li><a href="publications.html">All Publications</a></li>
-                    <li><a href="index.html#cv">CV</a></li>
-                    <li><a href="index.html#communications">Communications</a></li>
-                    <li><a href="index.html#roles">Roles</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="communications.html">Communications</a></li>
+                    <li><a href="software.html">Software & GitHub</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -30,11 +31,13 @@
     <main>
         <section id="publications">
             <div class="container">
-                <h2>Publications</h2>
-                <div id="publication-list">
-                    Loading publications...
+                <div class="card">
+                    <h2>Publications</h2>
+                    <div id="publication-list">
+                        Loading publications...
+                    </div>
+                    <p style="margin-top:0.6rem;">Generated automatically from Google Scholar.</p>
                 </div>
-                <p>Generated automatically from Google Scholar.</p>
             </div>
         </section>
     </main>
