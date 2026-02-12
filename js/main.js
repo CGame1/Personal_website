@@ -24,16 +24,44 @@ function escapeHtml(str) {
     return str.replace(/[&<>\`"']/g, function(m) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','`':'&#96;','"':'&quot;',"'":"&#39;"})[m]; });
 }
 
-function highlightAuthor(authorsStr, name) {
-    // Split authors by comma or ' and '
+function highlightAuthorSimple(a, name) {
+    const safe = escapeHtml(a);
+    return a.toLowerCase().includes(name.toLowerCase()) ? `<span class="author-highlight">${safe}</span>` : safe;
+}
+
+function formatAuthorsHtml(authorsStr, name) {
+    if (!authorsStr) return '';
+    // split on ' and ' or commas
     const parts = authorsStr.split(/,| and /).map(s => s.trim()).filter(Boolean);
-    return parts.map((a, i) => {
-        const safe = escapeHtml(a);
-        if (a.toLowerCase() === name.toLowerCase()) {
-            return `<span class="author-highlight">${safe}</span>`;
-        }
-        return safe;
-    }).join(', ');
+    const n = parts.length;
+
+    if (n <= 4) {
+        return parts.map(p => highlightAuthorSimple(p, name)).join(', ');
+    }
+
+    // find index of author's name (match first name or surname)
+    const idx = parts.findIndex(p => p.toLowerCase().includes(name.toLowerCase().split(' ')[0]));
+
+    const first = parts[0];
+    const second = parts[1];
+    const last = parts[n-1];
+
+    if (idx === 0) {
+        // Chloe is first author -> show first two and ellipsis
+        return [highlightAuthorSimple(first, name), escapeHtml(second), '…'].join(', ');
+    }
+    if (idx === n - 1) {
+        // Chloe is last author -> show first, ellipsis, Chloe
+        return `${escapeHtml(first)}, …, ${highlightAuthorSimple(parts[idx], name)}`;
+    }
+
+    if (idx > 0) {
+        // Chloe is in middle -> show first, ellipsis, Chloe, ellipsis, last
+        return `${escapeHtml(first)}, …, ${highlightAuthorSimple(parts[idx], name)}, …, ${escapeHtml(last)}`;
+    }
+
+    // fallback: show first two, ellipsis, last
+    return `${escapeHtml(first)}, ${escapeHtml(second)}, …, ${escapeHtml(last)}`;
 }
 
 function renderPublications(publications, container) {
@@ -56,31 +84,23 @@ function renderPublications(publications, container) {
 
         const title = escapeHtml(pub.title || 'Untitled');
         const authorsRaw = pub.author || pub.authors || '';
-        const authorsHtml = highlightAuthor(authorsRaw, 'Chloe Game');
-        const venue = escapeHtml(pub.publication || pub.venue || '');
+        const authorsHtml = formatAuthorsHtml(authorsRaw, 'Chloe Game');
         const year = pub.year || '';
 
-        let linksHtml = '';
-        if (pub.eprint_url) {
-            linksHtml += `<a href="${escapeHtml(pub.eprint_url)}" target="_blank" rel="noopener noreferrer">PDF/Link</a>`;
-        }
-        if (pub.doi) {
-            const doiUrl = `https://doi.org/${encodeURIComponent(pub.doi)}`;
-            linksHtml += (linksHtml ? ' | ' : '') + `<a href="${doiUrl}" target="_blank" rel="noopener noreferrer">DOI</a>`;
-        }
-        if (pub.arxiv_id) {
-            const arxivUrl = pub.arxiv_id.startsWith('http') ? pub.arxiv_id : `https://arxiv.org/abs/${encodeURIComponent(pub.arxiv_id)}`;
-            linksHtml += (linksHtml ? ' | ' : '') + `<a href="${arxivUrl}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
-        }
+        // build links HTML (small pop-out to the right)
+        const links = [];
+        if (pub.eprint_url) links.push({label: 'PDF', url: pub.eprint_url});
+        if (pub.doi) links.push({label: 'DOI', url: `https://doi.org/${encodeURIComponent(pub.doi)}`});
+        if (pub.arxiv_id) links.push({label: 'arXiv', url: pub.arxiv_id.startsWith('http') ? pub.arxiv_id : `https://arxiv.org/abs/${encodeURIComponent(pub.arxiv_id)}`});
+
+        let linksHtml = links.map(l => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer" class="pub-link-small">${escapeHtml(l.label)}</a>`).join(' ');
 
         item.innerHTML = `
             <div class="pub-meta">
-                <span class="pub-title">${title}</span>
-                <span class="pub-year">${year ? `, ${year}` : ''}</span>
+                <div class="pub-title-wrap"><span class="pub-title">${title}</span><span class="pub-year">${year ? `, ${year}` : ''}</span></div>
+                <div class="pub-links">${linksHtml}</div>
             </div>
             <div class="pub-authors">${authorsHtml}</div>
-            <div class="pub-venue">${venue}</div>
-            <div class="pub-links">${linksHtml}</div>
         `;
 
         list.appendChild(item);
