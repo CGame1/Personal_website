@@ -1,0 +1,262 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --light-bg: #f8f9fa;
+    --border-color: #e9ecef;
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --max-width: 900px;
+    --spacing-unit: 1rem;
+}
+
+[data-theme="dark"] {
+    --primary-color: #ecf0f1;
+    --accent-color: #3498db;
+    --bg-color: #1a1a1a;
+    --text-color: #ecf0f1;
+    --light-bg: #2c2c2c;
+    --border-color: #444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-unit);
+    font-weight: 600;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Nav */
+header {
+    padding: 2rem 0;
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(26, 26, 26, 0.9);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+/* Hero/About */
+.hero {
+    display: flex;
+    align-items: center; /* Center vertically */
+    gap: 4rem;
+    padding-top: 6rem; /* Extra top padding */
+    padding-bottom: 6rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .subtitle {
+    color: #aaa;
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Circle */
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 3px solid var(--accent-color); /* Optional accent border */
+}
+
+
+/* Publications */
+.pub-list {
+    list-style: none;
+}
+
+.pub-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.pub-item:last-child {
+    border-bottom: none;
+}
+
+.pub-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.pub-authors {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .pub-authors {
+    color: #ccc;
+}
+
+.pub-venue {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.pub-links a {
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.pub-links a:hover {
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+}
+
+.author-highlight {
+    font-weight: 700;
+    color: var(--primary-color);
+    /* text-decoration: underline; */
+}
+
+/* Research & Roles */
+.item-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.role-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.role-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Footer */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    background-color: var(--light-bg);
+    margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Mobile menu implementation usually needs JS, keeping simple for now */
+    }
+    
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
