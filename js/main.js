@@ -24,9 +24,38 @@ function escapeHtml(str) {
     return str.replace(/[&<>\`"']/g, function(m) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','`':'&#96;','"':'&quot;',"'":"&#39;"})[m]; });
 }
 
+// Match author name variants robustly (e.g. "Chloe Game", "Chloe A Game", "Chloe Amanda Game")
+function authorMatchesName(authorName, targetFullName) {
+    if (!authorName || !targetFullName) return false;
+    const a = authorName.toLowerCase();
+    const t = targetFullName.toLowerCase().trim();
+
+    // direct substring match first
+    if (a.includes(t)) return true;
+
+    const tParts = t.split(/\s+/).filter(Boolean);
+    if (tParts.length === 0) return false;
+
+    const first = tParts[0];
+    const last = tParts[tParts.length - 1];
+
+    // require both first and last name tokens to appear somewhere in the author string
+    if (a.includes(first) && a.includes(last)) return true;
+
+    // allow first initial + last (e.g., "C. A. Game" or "C A Game" or "C Game")
+    const firstInitial = first.charAt(0);
+    const initialPattern = new RegExp(`\b${firstInitial}[\\.\s]*${last}\b`);
+    if (initialPattern.test(a)) return true;
+
+    // fallback: match last name and any occurrence of the first name initial
+    if (a.includes(last) && a.includes(firstInitial)) return true;
+
+    return false;
+}
+
 function highlightAuthorSimple(a, name) {
     const safe = escapeHtml(a);
-    return a.toLowerCase().includes(name.toLowerCase()) ? `<span class="author-highlight">${safe}</span>` : safe;
+    return authorMatchesName(a, name) ? `<span class="author-highlight">${safe}</span>` : safe;
 }
 
 function formatAuthorsHtml(authorsStr, name) {
@@ -40,7 +69,7 @@ function formatAuthorsHtml(authorsStr, name) {
     }
 
     // find index of author's name (match first name or surname)
-    const idx = parts.findIndex(p => p.toLowerCase().includes(name.toLowerCase().split(' ')[0]));
+    const idx = parts.findIndex(p => authorMatchesName(p, name));
 
     const first = parts[0];
     const second = parts[1];
@@ -89,11 +118,11 @@ function renderPublications(publications, container) {
 
         // build links HTML (small pop-out to the right)
         const links = [];
-        if (pub.eprint_url) links.push({label: 'PDF', url: pub.eprint_url});
-        if (pub.doi) links.push({label: 'DOI', url: `https://doi.org/${encodeURIComponent(pub.doi)}`});
-        if (pub.arxiv_id) links.push({label: 'arXiv', url: pub.arxiv_id.startsWith('http') ? pub.arxiv_id : `https://arxiv.org/abs/${encodeURIComponent(pub.arxiv_id)}`});
+        if (pub.eprint_url) links.push({label: '↗', url: pub.eprint_url, title: 'Open PDF in new tab'});
+        if (pub.doi) links.push({label: 'DOI', url: `https://doi.org/${encodeURIComponent(pub.doi)}`, title: 'Open DOI in new tab'});
+        if (pub.arxiv_id) links.push({label: 'arXiv', url: pub.arxiv_id.startsWith('http') ? pub.arxiv_id : `https://arxiv.org/abs/${encodeURIComponent(pub.arxiv_id)}`, title: 'Open arXiv in new tab'});
 
-        let linksHtml = links.map(l => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer" class="pub-link-small">${escapeHtml(l.label)}</a>`).join(' ');
+        let linksHtml = links.map(l => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer" class="pub-link-small" title="${escapeHtml(l.title)}" aria-label="${escapeHtml(l.title)}">${escapeHtml(l.label)}</a>`).join(' ');
 
         item.innerHTML = `
             <div class="pub-meta">
