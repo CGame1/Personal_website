@@ -52,8 +52,8 @@ a:hover { text-decoration: underline; }
 .site-title { margin:0; font-weight:700; font-family:var(--sans); font-size:1.05rem; color:var(--text); }
 .site-title a { color:inherit; }
 
-/* header-photo (circular) */
-.header-photo { width:52px; height:52px; border-radius:9999px; object-fit:cover; border:2px solid rgba(255,255,255,0.06); box-shadow: 0 4px 18px rgba(2,6,12,0.6); }
+/* header-photo (circular) - hide small thumbnail in header per request */
+.header-photo { display: none !important; width:52px; height:52px; border-radius:9999px; object-fit:cover; border:2px solid rgba(255,255,255,0.06); box-shadow: 0 4px 18px rgba(2,6,12,0.6); }
 
 /* Hide legacy theme toggle (site is permanently dark) */
 .theme-toggle { display: none !important; }
@@ -74,7 +74,7 @@ section h2 { font-size:1.45rem; color:var(--text); margin-bottom:0.8rem; }
 .subtitle { color:var(--muted); font-size:1.05rem; margin-bottom:1rem; }
 
 /* Circular inline image inside hero */
-.circle { width:100%; max-width:250px; height:auto; border-radius:9999px; object-fit:cover; border:3px solid rgba(103,208,255,0.12); box-shadow: 0 6px 30px rgba(2,6,12,0.6); float:right; margin-left:1rem; }
+.circle { width:100%; max-width:350px; height:auto; border-radius:9999px; object-fit:cover; border:3px solid rgba(103,208,255,0.12); box-shadow: 0 6px 30px rgba(2,6,12,0.6); margin-left:1rem; align-self:center; }
 
 /* Quick info, profiles */
 .hero-text h4 { margin-top:1.15rem; color:var(--accent-2); font-size:0.95rem; }
@@ -123,7 +123,7 @@ section h2 { font-size:1.45rem; color:var(--text); margin-bottom:0.8rem; }
 /* Responsive adjustments */
 @media (max-width: 900px) {
     .hero { flex-direction:column; align-items:flex-start; }
-    .circle { float:none; width:120px; height:120px; margin:0 0 1rem 0; }
+    .circle { /* mobile size */ width:120px; height:120px; margin:0 0 1rem 0; }
     .top-nav ul { gap:0.35rem; overflow:auto; padding-bottom:0.25rem; }
     .header-inner { padding:0.6rem 0; }
     .pub-meta { flex-direction:column; align-items:flex-start; gap:0.25rem; }
