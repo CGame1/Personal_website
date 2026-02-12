@@ -233,6 +233,13 @@ section:last-child {
     outline: none;
 }
 
+/* Active nav link */
+.top-nav a.active {
+    background: rgba(52,152,219,0.12);
+    color: var(--accent-color);
+    border-radius: 6px;
+}
+
 /* Show hero-image on wide screens now that sidebar removed */
 .hero-image {
     display: block;
@@ -468,6 +475,17 @@ section:last-child {
     background: rgba(37, 99, 235, 0.08);
 }
 
+/* Publication year styling (muted, smaller) */
+.pub-year {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+[data-theme="dark"] .pub-year {
+    color: #aaa;
+}
+
 /* Research & Roles */
 .item-list {
     display: grid;
@@ -500,6 +518,44 @@ footer {
     color: #666;
     background-color: var(--light-bg);
     margin-top: 4rem;
+}
+
+/* Footer layout */
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.footer-icon {
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 6px;
+}
+
+.footer-icon:hover {
+    background: rgba(37,99,235,0.06);
+    color: var(--accent-color);
+}
+
+.flag {
+    font-size: 1.1rem;
+    margin-right: 0.35rem;
 }
 
 /* Responsive */
@@ -593,6 +649,17 @@ h1{font-size:1.8rem;margin:0 0 8px}
     background: rgba(37, 99, 235, 0.08);
 }
 
+/* Publication year styling (muted, smaller) */
+.pub-year {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+[data-theme="dark"] .pub-year {
+    color: #aaa;
+}
+
 /* Roles, research */
 .item-list{margin-top:12px}
 
@@ -663,4 +730,14 @@ a[download]:hover {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding-left: 1.1rem;
+}
+
+/* Site notice styling */
+.site-notice {
+    background: linear-gradient(180deg, rgba(254,243,199,0.6), rgba(255,250,240,0.4));
+    border-left: 4px solid rgba(245,158,11,0.25);
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    color: #6b4d00;
+    font-size: 0.95rem;
 }

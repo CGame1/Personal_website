@@ -126,10 +126,11 @@ function renderPublications(publications, container) {
 
         item.innerHTML = `
             <div class="pub-meta">
-                <div class="pub-title-wrap"><span class="pub-title">${title}</span><span class="pub-year">${year ? `, ${year}` : ''}</span></div>
+                <div class="pub-title-wrap"><span class="pub-title">${title}</span></div>
                 <div class="pub-links">${linksHtml}</div>
             </div>
             <div class="pub-authors">${authorsHtml}</div>
+            <div class="pub-year">${year ? escapeHtml(String(year)) : ''}</div>
         `;
 
         list.appendChild(item);

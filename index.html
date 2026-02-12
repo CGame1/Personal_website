@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,33 +20,30 @@
     <header class="top-header">
         <div class="container header-inner">
             <div class="header-left">
-                <!-- small SVG thumbnail used as default; higher-resolution images supplied via srcset -->
-                <img src="data/photo_prof-thumb.svg"
-                     srcset="data/photo_prof-thumb.svg 80w, data/photo_prof-400.jpg 400w, data/photo_prof-800.jpg 800w, data/photo_prof-1200.jpg 1200w, data/photo_prof.jpg 1x, data/photo_prof@2x.jpg 2x"
-                     sizes="80px"
-                     alt="Chloe Game"
-                     class="profile-img header-photo"
-                     loading="lazy"
-                     decoding="async">
                 <div>
-                    <h1 class="site-title">Chloe Game</h1>
-                    <p class="site-sub">Postdoctoral Fellow, MSCA SEAS — Dept. of Informatics, University of Bergen</p>
+                    <h1 class="site-title"><a href="index.html">Chloe Game</a></h1>
                 </div>
             </div>
             <nav class="top-nav" aria-label="Primary">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#selected-publications">Selected</a></li>
-                    <li><a href="#publications">All Publications</a></li>
-                    <li><a href="#cv">CV</a></li>
-                    <li><a href="#communications">Communications</a></li>
-                    <li><a href="#roles">Roles</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#selected-publications">Selected</a></li>
+                    <li><a href="publications.html">All Publications</a></li>
+                    <li><a href="index.html#cv">CV</a></li>
+                    <li><a href="index.html#communications">Communications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Site notice -->
+    <div class="site-notice" role="status" aria-live="polite">
+        <div class="container">
+            <p><strong>Site under construction:</strong> This website is updated regularly and may contain incomplete or outdated information. If you find errors or omissions, please contact <a href="mailto:chloe.game@uib.no">chloe.game@uib.no</a>.</p>
+        </div>
+    </div>
 
     <!-- Content area -->
     <div class="site-content">
@@ -138,6 +135,14 @@
                         <li>Presentation to Art students — interdisciplinary seminar, 2025</li>
                     </ul>
 
+                    <!-- Embedded video: responsive YouTube iframe -->
+                    <div class="container">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+                            <iframe src="https://www.youtube.com/embed/pXE_tn7PmKw?rel=0&modestbranding=1" title="Talk video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        </div>
+                        <p style="font-size:0.95rem;margin-top:0.4rem;"><a href="https://www.youtube.com/watch?v=pXE_tn7PmKw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
+                    </div>
+
                     <h3>Conference talks</h3>
                     <ul>
                         <li>Ocean Sciences Meeting (OSM) — 2026 (co-chair / speaker)</li>
@@ -170,8 +175,6 @@
                     <h2>🎖️ Fellowships, grants & awards</h2>
                     <ul>
                         <li>MSCA SEAS Postdoctoral Research Fellowship (Marie Skłodowska‑Curie Co-fund) — Grant No. 101034309 (2023–2027)</li>
-                        <li>Bezos Earth Fund (personal portion: US$25,000)</li>
-                        <li>Ocean Shot contribution (personal portion: 6.25 months work)</li>
                         <li>Blue Revolution Training Workshop Scholarship — Brest, France (Sep 2021)</li>
                         <li>UEA conference/poster awards (2018–2022): multiple prizes for poster presentations and early-stage research</li>
                         <li>Travel grants: Marine Biological Association Student Travel Grant</li>
@@ -213,7 +216,11 @@
                     </div>
 
                     <h3>Languages</h3>
-                    <p>English (Native) · French (Intermediate) · Norwegian (~B1)</p>
+                    <p class="languages">
+                        <span class="flag" role="img" aria-label="United Kingdom flag">🇬🇧</span> English (Native) &nbsp;•&nbsp;
+                        <span class="flag" role="img" aria-label="France flag">🇫🇷</span> French (Intermediate) &nbsp;•&nbsp;
+                        <span class="flag" role="img" aria-label="Norway flag">🇳🇴</span> Norwegian (~B1)
+                    </p>
 
                     <h3>🎓 Qualifications</h3>
                     <ul>
@@ -262,32 +269,45 @@
                 </div>
             </section>
 
-            <!-- Publications -->
-            <section id="publications">
+            <!-- Selected publications (formatted like main list) -->
+            <section id="selected-publications" aria-label="Selected publications">
                 <div class="container">
-                    <h2>Publications</h2>
-                    <div id="publication-list">
-                        Loading publications...
-                    </div>
-                    <p>Generated automatically from Google Scholar.</p>
-                </div>
-            </section>
-
-            <!-- Roles & Service -->
-            <section id="roles">
-                <div class="container">
-                    <h2>Roles & Service</h2>
-                    <div class="item-list">
-                        <div class="role-item">
-                            <h3>Teaching</h3>
-                            <p class="role-meta">University of Bergen</p>
-                            <p>Instructor for [Course Name], [Year]</p>
-                        </div>
-                        <div class="role-item">
-                            <h3>Reviewing</h3>
-                            <p>Reviewer for NeurIPS, ICML, ICLR</p>
-                        </div>
-                    </div>
+                    <h2>Selected publications</h2>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <div class="pub-meta">
+                                <div class="pub-title-wrap"><span class="pub-title">Deep Blueprint: A Literature Review and Guide to Automated Image Classification for Ecologists</span></div>
+                                <div class="pub-links"><a class="pub-link-small" href="https://www.biorxiv.org/content/10.1101/2025.11.03.686223.abstract" target="_blank" rel="noopener noreferrer">↗</a></div>
+                            </div>
+                            <div class="pub-authors">Chloe Amanda Game, Nils Piechaud, Kerry Howell</div>
+                            <div class="pub-year">2025</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-meta">
+                                <div class="pub-title-wrap"><span class="pub-title">Machine learning for non-experts: A more accessible and simpler approach to automatic benthic habitat classification</span></div>
+                                <div class="pub-links"><a class="pub-link-small" href="https://www.sciencedirect.com/science/article/pii/S1574954124001614" target="_blank" rel="noopener noreferrer">↗</a></div>
+                            </div>
+                            <div class="pub-authors">Chloe A Game, Michael B Thompson, Graham D Finlayson</div>
+                            <div class="pub-year">2024</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-meta">
+                                <div class="pub-title-wrap"><span class="pub-title">Weibull Tone Mapping (WTM) for the enhancement of underwater imagery</span></div>
+                                <div class="pub-links"><a class="pub-link-small" href="https://www.mdpi.com/1424-8220/23/7/3533" target="_blank" rel="noopener noreferrer">↗</a></div>
+                            </div>
+                            <div class="pub-authors">Chloe Amanda Game, Michael Barry Thompson, Graham David Finlayson</div>
+                            <div class="pub-year">2023</div>
+                        </li>
+                        <li class="pub-item">
+                            <div class="pub-meta">
+                                <div class="pub-title-wrap"><span class="pub-title">Domain-inspired image processing and computer vision to support deep-sea benthic ecology</span></div>
+                                <div class="pub-links"><a class="pub-link-small" href="https://ueaeprints.uea.ac.uk/id/eprint/93971/" target="_blank" rel="noopener noreferrer">↗</a></div>
+                            </div>
+                            <div class="pub-authors">Chloe Game</div>
+                            <div class="pub-year">2022</div>
+                        </li>
+                    </ul>
+                    <p><a href="publications.html">View full publications list →</a></p>
                 </div>
             </section>
 
@@ -305,8 +325,16 @@
         </main>
 
         <footer>
-            <div class="container">
+            <div class="container footer-inner">
                 <p>&copy; <script>document.write(new Date().getFullYear())</script> Chloe Game</p>
+                <div class="footer-links" aria-label="Contact links">
+                    <a href="mailto:chloe.game@uib.no" class="footer-icon" aria-label="Email" title="Email"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 2h16v10H1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M1 2l8 6 8-6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></a>
+                    <a href="https://github.com/chloegame" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="GitHub" title="GitHub"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 .5a7.5 7.5 0 0 0-2.37 14.6c.37.07.5-.16.5-.36v-1.27c-2.04.44-2.47-.99-2.47-.99-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.15 1.76.82 2.19.63.07-.49.26-.82.47-1.01-1.63-.18-3.34-.82-3.34-3.64 0-.8.28-1.46.74-1.98-.07-.18-.32-.9.07-1.87 0 0 .6-.19 1.96.74a6.77 6.77 0 0 1 3.57 0c1.36-.93 1.96-.74 1.96-.74.39.97.14 1.69.07 1.87.46.52.74 1.18.74 1.98 0 2.83-1.71 3.46-3.34 3.64.27.23.51.68.51 1.37v2.03c0 .2.13.44.5.36A7.5 7.5 0 0 0 8 .5z" fill="currentColor"/></svg></a>
+                    <a href="https://www.linkedin.com/in/chloegame" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="LinkedIn" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M6 9h3v9H6zM7.5 6a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5zM13 12.5c0-1.8 2.4-1.95 2.4 0v3.5h-3v-3.5z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="ORCID" title="ORCID"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.2"/></svg></a>
+                    <a href="https://www.researchgate.net/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="ResearchGate" title="ResearchGate"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
+                    <a href="https://scholar.google.com/citations?user=LuVrZlUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Google Scholar" title="Google Scholar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2v8l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="17" r="3" stroke="currentColor" stroke-width="1.2"/></svg></a>
+                </div>
             </div>
         </footer>
     </div>
