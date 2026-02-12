@@ -30,8 +30,8 @@ jobs:
           
       - name: Fetch Publications
         env:
-          GOOGLE_SCHOLAR_AUTHOR_NAME: ${{ secrets.GOOGLE_SCHOLAR_AUTHOR_NAME }}
-          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+          GOOGLE_SCHOLAR_AUTHOR_NAME: "Chloe Game"
+          GOOGLE_SCHOLAR_ID: "LuVrZlUAAAAJ"
         run: python scripts/fetch_publications.py
         
       - name: Commit data changes
