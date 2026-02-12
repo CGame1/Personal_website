@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chloe Game - Machine Learning Researcher</title>
+    <title>Chloe Game | AI Researcher</title>
     <meta name="description" content="Academic website of Chloe Game, Postdoctoral Researcher in Machine Learning.">
     
     <!-- Fonts -->
@@ -21,18 +21,21 @@
         <div class="container header-inner">
             <div class="header-left">
                 <div>
-                    <h1 class="site-title"><a href="index.html">Chloe Game</a></h1>
+                    <div style="display:flex;align-items:center;gap:0.75rem">
+                        <img src="data/photo_prof.jpg" alt="Chloe Game" class="header-photo" width="48" height="48" style="border-radius:50%;object-fit:cover;" loading="lazy" decoding="async">
+                        <h1 class="site-title" style="margin:0"><a href="index.html">Chloe Game</a></h1>
+                    </div>
                 </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark theme">🌙</button>
             </div>
             <nav class="top-nav" aria-label="Primary">
                 <ul>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#research">Research</a></li>
-                    <li><a href="index.html#selected-publications">Selected</a></li>
-                    <li><a href="publications.html">All Publications</a></li>
-                    <li><a href="index.html#cv">CV</a></li>
-                    <li><a href="index.html#communications">Communications</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="communications.html">Communications</a></li>
+                    <li><a href="software.html">Software & GitHub</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,7 +44,7 @@
     <!-- Site notice -->
     <div class="site-notice" role="status" aria-live="polite">
         <div class="container">
-            <p><strong>Site under construction:</strong> This website is updated regularly and may contain incomplete or outdated information. If you find errors or omissions, please contact <a href="mailto:chloe.game@uib.no">chloe.game@uib.no</a>.</p>
+            <p><strong>Site under construction:</strong> This website is updated regularly and may contain incomplete or outdated information.</p>
         </div>
     </div>
 
@@ -72,16 +75,6 @@
                                 <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer">ORCID</a>
                             </p>
                         </div>
-                        <!-- image intentionally inside sidebar on wide screens; included here for small screens fallback -->
-                        <div class="hero-image">
-                           <img src="data/photo_prof.jpg" 
-                                srcset="data/photo_prof-400.jpg 400w, data/photo_prof-800.jpg 800w, data/photo_prof-1200.jpg 1200w, data/photo_prof.jpg 1x, data/photo_prof@2x.jpg 2x" 
-                                sizes="(min-width: 900px) 300px, 40vw" 
-                                alt="Chloe Game" 
-                                class="profile-img" 
-                                loading="lazy" 
-                                decoding="async">
-                        </div>
                     </div>
                 </div>
             </section>
@@ -105,8 +98,20 @@
                         <p>
                             The current project develops ML methods that combine seabed images with environmental covariates (e.g., topography, temperature) to improve classification accuracy and ecological relevance. Emphasis is placed on methods that scale to large monitoring programs and provide interpretable outputs for stakeholders.
                         </p>
+
+                                        <!-- Embedded video: responsive YouTube iframe -->
+                        <div class="container">
+                            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+                                <iframe src="https://www.youtube.com/embed/pXE_tn7PmKw?rel=0&modestbranding=1" title="Talk video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
+
+
+
             </section>
 
             <!-- Moved sections: Selected publications, Communications, Fellowships, Academic services, Skills, Qualifications, Experience, Software & GitHub -->
@@ -123,52 +128,7 @@
                 </div>
             </section>
 
-            <section id="communications">
-                <div class="container">
-                    <h2>🎤 Communications</h2>
-
-                    <h3>Invited talks & public engagement</h3>
-                    <ul>
-                        <li>"AI's role in deep-sea research" — Rethinking Ocean Research (invited), 2025</li>
-                        <li>United Nations Ocean Conference (Nice) — "Knowledge Sharing: ECOPs and Science Diplomacy" (invited), 2025</li>
-                        <li>Women of the Future (online) — invited speaker, 2020</li>
-                        <li>Presentation to Art students — interdisciplinary seminar, 2025</li>
-                    </ul>
-
-                    <!-- Embedded video: responsive YouTube iframe -->
-                    <div class="container">
-                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-                            <iframe src="https://www.youtube.com/embed/pXE_tn7PmKw?rel=0&modestbranding=1" title="Talk video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                        </div>
-                        <p style="font-size:0.95rem;margin-top:0.4rem;"><a href="https://www.youtube.com/watch?v=pXE_tn7PmKw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
-                    </div>
-
-                    <h3>Conference talks</h3>
-                    <ul>
-                        <li>Ocean Sciences Meeting (OSM) — 2026 (co-chair / speaker)</li>
-                        <li>Bergen Bathysphere Symposium — Bergen, Norway (2024)</li>
-                        <li>SEAS Annual Meetings — Bergen, Norway (2024, 2025)</li>
-                        <li>MASTS Annual Science Meeting — Glasgow, UK (Nov 2022)</li>
-                        <li>Deep Sea Biology Symposium — Brest, France (Sep 2021)</li>
-                        <li>Colour & Imaging Conference / AIC meetings — 2020–2021</li>
-                    </ul>
-
-                    <h3>Conference posters</h3>
-                    <ul>
-                        <li>OSM 2026; Bergen Bathysphere Symposium (2024); Deep Sea Biology Symposium (2025)</li>
-                        <li>Marine Imaging Workshop (Monterey, 2024); London Imaging Meeting (Jul 2022)</li>
-                        <li>UEA CS Post-Graduate Research Day (2018–2020); MASTS (2019); PlyMSEF (2016 & 2018)</li>
-                    </ul>
-
-                    <h3>Courses & training (selected)</h3>
-                    <ul>
-                        <li>Science communication & design (Infohackit, 2022); Media training (2019)</li>
-                        <li>NVIDIA Fundamentals of Deep Learning; CUDA & accelerated computing workshops (2022)</li>
-                        <li>BMVA Computer Vision Summer School (2019); Software Carpentry (2019); LaTeX training (2019–2021)</li>
-                        <li>Autonomous underwater vehicles, sensors & platforms, taxonomy workshops (2017–2021)</li>
-                    </ul>
-                </div>
-            </section>
+            <!-- Communications moved to communications.html -->
 
             <section id="fellowships">
                 <div class="container">
@@ -195,79 +155,9 @@
                 </div>
             </section>
 
-            <section id="cv">
-                <div class="container">
-                    <h2>📄 CV</h2>
-                    <p><a href="data/Chloe_Game_CV.pdf" download>Download CV (PDF)</a> — file: <code>data/Chloe_Game_CV.pdf</code> (add to repo to enable download)</p>
+            <!-- CV moved to cv.html -->
 
-                    <h3>🧰 Skills</h3>
-                    <div class="skills-grid">
-                        <span class="skill-badge">Python</span>
-                        <span class="skill-badge">Machine learning</span>
-                        <span class="skill-badge">Computer vision</span>
-                        <span class="skill-badge">Image processing</span>
-                        <span class="skill-badge">GIS</span>
-                        <span class="skill-badge">R</span>
-                        <span class="skill-badge">LaTeX</span>
-                        <span class="skill-badge">Docker</span>
-                        <span class="skill-badge">C#</span>
-                        <span class="skill-badge">MATLAB</span>
-                        <span class="skill-badge">XAML</span>
-                    </div>
-
-                    <h3>Languages</h3>
-                    <p class="languages">
-                        <span class="flag" role="img" aria-label="United Kingdom flag">🇬🇧</span> English (Native) &nbsp;•&nbsp;
-                        <span class="flag" role="img" aria-label="France flag">🇫🇷</span> French (Intermediate) &nbsp;•&nbsp;
-                        <span class="flag" role="img" aria-label="Norway flag">🇳🇴</span> Norwegian (~B1)
-                    </p>
-
-                    <h3>🎓 Qualifications</h3>
-                    <ul>
-                        <li>PhD, Computer Science — University of East Anglia (2023). Thesis: "Domain-inspired image processing and computer vision to support deep-sea benthic ecology"</li>
-                        <li>MRes Marine Biology (Distinction) — University of Plymouth (2015–2016)</li>
-                        <li>BSc (Hons) Marine Biology &amp; Coastal Ecology (2:1; thesis awarded 1st) — University of Plymouth (2010–2013)</li>
-                        <li>Developing Teaching Skills (Pass) — 20 credit Masters Module, University of East Anglia (2018)</li>
-                        <li>Norwegian U2 - Intermediate (C), 15 ECTS — University of Bergen (2025)</li>
-                    </ul>
-
-                    <h3>💼 Professional experience</h3>
-                    <ul>
-                        <li><strong>MSCA SEAS Postdoctoral Research Fellow</strong> — Machine Learning Group, Department of Informatics, University of Bergen (Jun 2024–Jun 2027). Project: automated multi-modal monitoring strategies of vulnerable marine ecosystems (VMEs).</li>
-                        <li><strong>Environmental Data Scientist</strong> — Gardline Ltd., Great Yarmouth, UK (Aug 2022–Jun 2024). Projects: automated data processing, habitat classification, seabed fauna detection & segmentation. Technical training lead for bespoke software courses.</li>
-                        <li><strong>PhD Researcher</strong> — University of East Anglia, Norwich (Oct 2018–Dec 2022). Supervisor: Prof. Graham Finlayson. Thesis work on domain-inspired image processing for deep-sea benthic ecology.</li>
-                        <li><strong>Research Assistant</strong> — University of Plymouth (Oct 2016–Oct 2018). Supervisor: Dr. Emma Sheehan. Projects included ecological monitoring of Lyme Bay & BIOT MPAs.</li>
-                        <li><strong>Research Assistant (short-term)</strong> — University of Plymouth (Jun–Jul 2018). Supervisor: Dr. Kerry Howell. Project: hyperspectral imaging for benthic fauna classification.</li>
-                        <li><strong>Science Technician (Biology &amp; Chemistry)</strong> — Stoke Dameral Community College (Nov 2013–Jun 2015)</li>
-                    </ul>
-
-                    <h3>Teaching & supervision</h3>
-                    <ul>
-                        <li>Supervising Masters theses (Jun 2024–present) — University of Bergen: Eyes Beneath the Surface; Dynamic Threshold Image Annotation; Underwater Fish Detection (SAM & DINO)</li>
-                        <li>Teaching Assistant — University of East Anglia (Spring 2020): statistics and modelling for scientists using R (Masters module)</li>
-                        <li>Undergraduate and Masters student support — University of Plymouth (2016–2018): camera platform operation, image analysis, programming)</li>
-                    </ul>
-
-                    <h3>Fieldwork</h3>
-                    <ul>
-                        <li>Multiple marine ecological surveys in MPAs (2016–2018): benthic communities, plankton, birds, sediment sampling, ROV, CTD</li>
-                        <li>JC136 Deep-Links Cruise (May 2016) — 3-week ROV/AUV deep-sea survey, North-east Atlantic</li>
-                        <li>BSc thesis fieldwork: depth-related distribution and diversity of cold-water corals in the Northern Rockall Trough (2012–2013)</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="software-github">
-                <div class="container">
-                    <h2>🛠️ Software & GitHub</h2>
-                    <p>At Gardline I developed production-ready pipelines for seabed imagery processing, automated annotation tools and trained models for habitat classification. See code and projects on <a href="https://github.com/chloegame" target="_blank" rel="noopener noreferrer">GitHub</a>. Relevant repositories and demos will be listed on this page as curated links.</p>
-                    <ul class="repo-list">
-                        <li><a href="https://github.com/chloegame/sea-monitoring" target="_blank" rel="noopener noreferrer">sea-monitoring — automated seabed monitoring pipelines</a></li>
-                        <li><a href="https://github.com/chloegame/weibull-tone-mapping" target="_blank" rel="noopener noreferrer">weibull-tone-mapping — image enhancement tools & demos</a></li>
-                        <li><a href="https://github.com/chloegame/deep-blueprint" target="_blank" rel="noopener noreferrer">deep-blueprint — literature review & example code</a></li>
-                    </ul>
-                </div>
-            </section>
+            <!-- Software & GitHub moved to software.html -->
 
             <!-- Selected publications (formatted like main list) -->
             <section id="selected-publications" aria-label="Selected publications">

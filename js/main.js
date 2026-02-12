@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchPublications();
+    // Theme toggle setup
+    try {
+        const btn = document.getElementById('theme-toggle');
+        if (btn) {
+            const root = document.documentElement;
+            // Ensure default is dark if no preference stored
+            const stored = localStorage.getItem('theme');
+            if (!stored) {
+                root.setAttribute('data-theme', 'dark');
+            } else {
+                root.setAttribute('data-theme', stored);
+            }
+            const updateIcon = () => { btn.textContent = root.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️'; };
+            updateIcon();
+            btn.addEventListener('click', () => {
+                const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', current);
+                localStorage.setItem('theme', current);
+                updateIcon();
+            });
+        }
+    } catch (e) {
+        console.warn('Theme toggle init failed', e);
+    }
 });
 
 async function fetchPublications() {
