@@ -1,0 +1,48 @@
+name: Update publications
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1' # Weekly on Mondays at 06:00 UTC
+  push:
+    branches:
+      - main
+
+jobs:
+  fetch-publications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install scholarly
+
+      - name: Fetch publications
+        env:
+          SCHOLAR_ID: LuVrZlUAAAAJ
+        run: |
+          python scripts/fetch_publications.py --scholar-id "$SCHOLAR_ID" --out data/publications.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain | grep -q "data/publications.json"; then
+            git add data/publications.json
+            git commit -m "chore: update publications (via GitHub Actions)" || echo "No changes to commit"
+            git push
+          else
+            echo "No changes detected"
+          fi
+        shell: bash

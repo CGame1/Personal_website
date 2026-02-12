@@ -20,16 +20,32 @@ async function fetchPublications() {
     }
 }
 
+function escapeHtml(str) {
+    return str.replace(/[&<>\`"']/g, function(m) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','`':'&#96;','"':'&quot;',"'":"&#39;"})[m]; });
+}
+
+function highlightAuthor(authorsStr, name) {
+    // Split authors by comma or ' and '
+    const parts = authorsStr.split(/,| and /).map(s => s.trim()).filter(Boolean);
+    return parts.map((a, i) => {
+        const safe = escapeHtml(a);
+        if (a.toLowerCase() === name.toLowerCase()) {
+            return `<span class="author-highlight">${safe}</span>`;
+        }
+        return safe;
+    }).join(', ');
+}
+
 function renderPublications(publications, container) {
     container.innerHTML = ''; // Clear loading state
 
-    if (publications.length === 0) {
+    if (!Array.isArray(publications) || publications.length === 0) {
         container.innerHTML = '<p>No publications found.</p>';
         return;
     }
 
     // Sort by year descending (just in case)
-    publications.sort((a, b) => b.year - a.year);
+    publications.sort((a, b) => (b.year || 0) - (a.year || 0));
 
     const list = document.createElement('ul');
     list.className = 'pub-list';
@@ -38,19 +54,32 @@ function renderPublications(publications, container) {
         const item = document.createElement('li');
         item.className = 'pub-item';
 
-        // Highlight author
-        const authors = pub.author.replace(/Chloe Game/gi, '<span class="author-highlight">Chloe Game</span>');
-        
+        const title = escapeHtml(pub.title || 'Untitled');
+        const authorsRaw = pub.author || pub.authors || '';
+        const authorsHtml = highlightAuthor(authorsRaw, 'Chloe Game');
+        const venue = escapeHtml(pub.publication || pub.venue || '');
+        const year = pub.year || '';
+
         let linksHtml = '';
         if (pub.eprint_url) {
-            linksHtml += `<a href="${pub.eprint_url}" target="_blank">PDF/Link</a>`;
+            linksHtml += `<a href="${escapeHtml(pub.eprint_url)}" target="_blank" rel="noopener noreferrer">PDF/Link</a>`;
         }
-        // Add more links if available in the data schema
-        
+        if (pub.doi) {
+            const doiUrl = `https://doi.org/${encodeURIComponent(pub.doi)}`;
+            linksHtml += (linksHtml ? ' | ' : '') + `<a href="${doiUrl}" target="_blank" rel="noopener noreferrer">DOI</a>`;
+        }
+        if (pub.arxiv_id) {
+            const arxivUrl = pub.arxiv_id.startsWith('http') ? pub.arxiv_id : `https://arxiv.org/abs/${encodeURIComponent(pub.arxiv_id)}`;
+            linksHtml += (linksHtml ? ' | ' : '') + `<a href="${arxivUrl}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
+        }
+
         item.innerHTML = `
-            <span class="pub-title">${pub.title}</span>
-            <div class="pub-authors">${authors}</div>
-            <div class="pub-venue">${pub.publication} (${pub.year})</div>
+            <div class="pub-meta">
+                <span class="pub-title">${title}</span>
+                <span class="pub-year">${year ? `, ${year}` : ''}</span>
+            </div>
+            <div class="pub-authors">${authorsHtml}</div>
+            <div class="pub-venue">${venue}</div>
             <div class="pub-links">${linksHtml}</div>
         `;
 
