@@ -117,7 +117,7 @@ section:last-child {
     display: flex;
     align-items: center; /* Center vertically */
     gap: 4rem;
-    padding-top: 6rem; /* Extra top padding */
+    padding-top: 3rem; /* reduce top spacing to account for top header */
     padding-bottom: 6rem;
 }
 
@@ -156,6 +156,133 @@ section:last-child {
         margin: 0 auto;
         display: block;
     }
+}
+
+/* Sidebar layout - removed for top-header layout; keep harmless override in case code remains */
+.site-sidebar {
+    display: none; /* sidebar removed */
+}
+
+/* Ensure content uses full width now the sidebar is removed */
+.site-content {
+    margin-left: 0;
+}
+
+/* Top header (new) */
+.top-header {
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    flex-shrink: 0;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.site-sub {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted, #666);
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav a {
+    color: var(--text-color);
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.top-nav a:hover, .top-nav a:focus {
+    background: rgba(52,152,219,0.08);
+    color: var(--accent-color);
+    outline: none;
+}
+
+/* Show hero-image on wide screens now that sidebar removed */
+.hero-image {
+    display: block;
+}
+
+@media (min-width: 901px) {
+    .hero-image img.profile-img {
+        max-width: 220px;
+        margin-left: 1rem;
+    }
+}
+
+/* Skills badges */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.skill-badge {
+    display: inline-block;
+    background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02));
+    color: var(--primary-color);
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(37,99,235,0.12);
+}
+
+/* Labels for publication types */
+.label-preprint, .label-thesis {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.label-preprint {
+    background: rgba(252,211,77,0.12);
+    color: #92400e;
+}
+
+.label-thesis {
+    background: rgba(56,189,248,0.06);
+    color: #0369a1;
 }
 
 /* Sidebar layout */
@@ -485,3 +612,55 @@ footer{padding:28px 0;color:var(--muted);font-size:0.9rem}
 
 /* small cosmetic helpers */
 a{color:var(--accent)}
+
+/* Repo list styling (Software & GitHub) */
+.repo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.repo-list li a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.25rem 0.35rem;
+    border-radius: 6px;
+}
+
+.repo-list li a:hover,
+.repo-list li a:focus {
+    background: rgba(52,152,219,0.06);
+    outline: none;
+}
+
+/* CV download link styling */
+a[download] {
+    display: inline-block;
+    background: linear-gradient(180deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02));
+    color: #064e3b;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(16,185,129,0.12);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a[download]:hover {
+    background: rgba(16,185,129,0.12);
+}
+
+/* Small container tweaks for CV and selected lists */
+.selected-pubs ul, .skills-grid, .repo-list {
+    margin-left: 0;
+}
+
+/* Compact list spacing for CV and references */
+#cv ul, #communications ul, #fellowships ul, #academic-services ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.1rem;
+}
