@@ -3,30 +3,53 @@ import os
 import sys
 from scholarly import scholarly
 
-def fetch_publications(author_name_or_id):
-    print(f"Searching for author: {author_name_or_id}")
+def fetch_publications(author_name_or_id, use_id=False):
+    print(f"Searching for author: {author_name_or_id} (ID mode: {use_id})")
     
     try:
-        # Try to search by ID first if it looks like an ID
-        # Only feasible if we knew the ID format, but scholarly search_author_id takes ID.
-        # Here we mix logic or just use search_author for name.
-        # If it's a name:
-        search_query = scholarly.search_author(author_name_or_id)
-        author = next(search_query)
+        if use_id:
+            author = scholarly.search_author_id(author_name_or_id)
+        else:
+            search_query = scholarly.search_author(author_name_or_id)
+            author = next(search_query)
+        
         print(f"Found author: {author['name']} ({author['scholar_id']})")
         
         # Fill sections
         print("Fetching publications...")
-        scholarly.fill(author, sections=['publications'])
+        try:
+            scholarly.fill(author, sections=['publications'])
+        except Exception as e:
+            print(f"Error filling author data: {e}. Trying to continue with available data.")
         
         publications = []
-        for pub in author['publications']:
+        # Sort by year descending to ensure latest are first (scholarly might not guarantee order)
+        sorted_pubs = sorted(author['publications'], key=lambda x: x['bib'].get('pub_year', '0'), reverse=True)
+
+        if sorted_pubs:
+            print(f"Debug - First pub keys: {sorted_pubs[0].keys()}")
+            print(f"Debug - First pub content: {sorted_pubs[0]}")
+
+        for i, pub in enumerate(sorted_pubs):
+            try:
+                # Fill the publication to get more details like authors
+                # This might be slow if there are many publications
+                print(f"Fetching details for publication {i+1}/{len(sorted_pubs)}: {pub['bib'].get('title', 'Unknown')}")
+                scholarly.fill(pub)
+            except Exception as e:
+                print(f"Failed to fill publication {pub['bib'].get('title', 'Unknown')}: {e}")
+            
             bib = pub['bib']
+            # scholarly 'author' field in bib is sometimes a list or string, or missing
+            authors_list = bib.get("author", "Unknown")
+            if isinstance(authors_list, list):
+                 authors_list = ", ".join(authors_list)
+            
             pub_data = {
                 "title": bib.get("title"),
-                "authors": bib.get("author", "Unknown"),
+                "authors": authors_list,
                 "year": bib.get("pub_year", "Unknown"),
-                "venue": bib.get("citation", ""), # scholarly puts venue in citation often
+                "venue": bib.get("citation", ""), 
                 "url": pub.get("pub_url", ""),
                 "citation_url": pub.get("citedby_url", "")
             }
@@ -49,16 +72,16 @@ def save_publications(publications, filepath):
 
 if __name__ == "__main__":
     # Get configuration from Environment Variables
-    # AUTHOR_ID is preferred, currently using name as fallback/placeholder
+    target_id = os.environ.get("GOOGLE_SCHOLAR_ID")
     target_author = os.environ.get("GOOGLE_SCHOLAR_AUTHOR_NAME")
     
-    if not target_author:
-        print("Error: GOOGLE_SCHOLAR_AUTHOR_NAME environment variable not set.")
-        print("Please set it to your Google Scholar name or ID.")
-        # For development, we can exit or use a placeholder if testing.
+    if target_id:
+        publications = fetch_publications(target_id, use_id=True)
+    elif target_author:
+        publications = fetch_publications(target_author, use_id=False)
+    else:
+        print("Error: Neither GOOGLE_SCHOLAR_ID nor GOOGLE_SCHOLAR_AUTHOR_NAME environment variable set.")
         sys.exit(1)
-        
-    publications = fetch_publications(target_author)
     
     # Path to save inside public/data/
     output_path = os.path.join("public", "data", "publications.json")
