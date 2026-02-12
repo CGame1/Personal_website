@@ -101,6 +101,104 @@ nav {
     text-decoration: none;
 }
 
+/* Layout: sidebar + content */
+.site-wrap {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 300px;
+    background: #0b1626;
+    color: #fff;
+    padding: 32px 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-inner {
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 16px;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 1.3rem;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.role {
+    color: #9fb0d6;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    display: block;
+}
+
+.sidebar-nav a {
+    color: #cfe3ff;
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+}
+
+.sidebar-nav a:hover {
+    color: #fff;
+}
+
+.social-links {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-links a {
+    color: #cfe3ff;
+    text-decoration: none;
+}
+
+.sidebar-footer {
+    margin-top: 28px;
+    text-align: center;
+    color: #9fb0d6;
+}
+
+.content {
+    flex: 1;
+    background: #fff;
+    padding: 48px 56px;
+}
+
+.section {
+    max-width: 900px;
+    margin-bottom: 36px;
+}
+
+.section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 12px;
+}
+
 /* Sections */
 section {
     padding: 4rem 0;
@@ -148,16 +246,16 @@ section:last-child {
     border: 3px solid var(--accent-color); /* Optional accent border */
 }
 
-
 /* Publications */
 .pub-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .pub-item {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px dashed var(--border-color);
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .pub-item:last-child {
@@ -166,9 +264,6 @@ section:last-child {
 
 .pub-title {
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-    display: block;
 }
 
 .pub-authors {
@@ -190,7 +285,7 @@ section:last-child {
 
 .pub-links a {
     font-size: 0.85rem;
-    margin-right: 1rem;
+    margin-right: 8px;
     padding: 0.2rem 0.5rem;
     border: 1px solid var(--accent-color);
     border-radius: 4px;
@@ -205,8 +300,7 @@ section:last-child {
 
 .author-highlight {
     font-weight: 700;
-    color: var(--primary-color);
-    /* text-decoration: underline; */
+    color: #0b5fff;
 }
 
 /* Research & Roles */
@@ -244,6 +338,21 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+    .site-wrap {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .content {
+        padding: 22px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none; /* Mobile menu implementation usually needs JS, keeping simple for now */

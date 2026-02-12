@@ -5,117 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chloe Game - Machine Learning Researcher</title>
     <meta name="description" content="Academic website of Chloe Game, Postdoctoral Researcher in Machine Learning.">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Chloe Game</div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#roles">Roles</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="site-wrap">
+        <!-- Sidebar (left column) -->
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <img src="https://via.placeholder.com/160" alt="Chloe Game" class="profile-img">
+                <h1 class="name">Chloe Game</h1>
+                <p class="role">Postdoctoral Researcher — Machine Learning</p>
 
-    <main>
-        <!-- Home / About -->
-        <section id="about">
-            <div class="container">
-                <div class="hero">
-                    <div class="hero-text">
-                        <h1>Chloe Game</h1>
-                        <p class="subtitle">Postdoctoral Researcher in Machine Learning</p>
-                        <p>
-                            I am a postdoctoral researcher working on foundational and applied problems in machine learning. My research spans learning theory, robust optimization, and scalable deep learning methods for real-world data. I focus on developing principled algorithms that combine theoretical guarantees with practical performance.
-                        </p>
-                    </div>
-                    <!-- Placeholder for profile image - User should replace this -->
-                    <div class="hero-image">
-                       <img src="https://via.placeholder.com/250" alt="Chloe Game" class="profile-img">
-                    </div>
+                <nav class="sidebar-nav" aria-label="Primary">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#roles">Roles</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="social-links">
+                    <a href="https://scholar.google.com/citations?user=LuVrZlUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                    <a href="https://github.com/chloegame" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="mailto:email@example.com">Email</a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <small>&copy; <script>document.write(new Date().getFullYear())</script> Chloe Game</small>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- Research -->
-        <section id="research">
-            <div class="container">
-                <h2>Research Interests</h2>
-                <div class="item-list">
-                    <p>
-                        My research interests generally include:
-                    </p>
+        <!-- Main content (right column) -->
+        <main class="content">
+            <!-- About -->
+            <section id="about" class="section">
+                <div class="section-inner">
+                    <h2>About</h2>
+                    <p class="subtitle">Postdoctoral Researcher in Machine Learning</p>
+                    <p>I am a postdoctoral researcher working on foundational and applied problems in machine learning. My research spans learning theory, robust optimization, and scalable deep learning methods for real-world data. I focus on developing principled algorithms that combine theoretical guarantees with practical performance.</p>
+                </div>
+            </section>
+
+            <!-- Research -->
+            <section id="research" class="section">
+                <div class="section-inner">
+                    <h2>Research</h2>
+                    <p>My research interests include:</p>
                     <ul>
                         <li>Machine Learning Theory</li>
-                        <li>Deep Learning Applications</li>
-                        <li>Optimization Methods</li>
-                        <li>[Add more specific interests]</li>
+                        <li>Robust & Scalable Deep Learning</li>
+                        <li>Optimization and Generalization</li>
                     </ul>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Publications -->
-        <section id="publications">
-            <div class="container">
-                <h2>Publications</h2>
-                <p>Generated automatically from Google Scholar.</p>
-                <div id="publication-list">
-                    Loading publications...
+            <!-- Publications -->
+            <section id="publications" class="section">
+                <div class="section-inner">
+                    <h2>Publications</h2>
+                    <p>Generated at build time from Google Scholar.</p>
+                    <div id="publication-list">Loading publications...</div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Roles & Service -->
-        <section id="roles">
-            <div class="container">
-                <h2>Roles & Service</h2>
-                <div class="item-list">
-                    <div class="role-item">
-                        <h3>Teaching</h3>
-                        <p class="role-meta">University of Bergen</p>
-                        <p>Instructor for [Course Name], [Year]</p>
-                    </div>
-                    <div class="role-item">
-                        <h3>Reviewing</h3>
-                        <p>Reviewer for NeurIPS, ICML, ICLR</p>
-                    </div>
+            <!-- Roles -->
+            <section id="roles" class="section">
+                <div class="section-inner">
+                    <h2>Roles & Service</h2>
+                    <h3>Teaching</h3>
+                    <p class="role-meta">University of Bergen</p>
+                    <p>Instructor for [Course Name], [Year]</p>
+
+                    <h3>Reviewing</h3>
+                    <p>Reviewer for NeurIPS, ICML, ICLR</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact -->
-        <section id="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <div class="contact-links">
+            <!-- Contact -->
+            <section id="contact" class="section">
+                <div class="section-inner">
+                    <h2>Contact</h2>
                     <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
                     <p>Google Scholar: <a href="https://scholar.google.com/citations?user=LuVrZlUAAAAJ&hl=en" target="_blank">View Profile</a></p>
                     <p>GitHub: <a href="https://github.com/chloegame" target="_blank">@chloegame</a></p>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Chloe Game. Built with minimal static HTML/JS.</p>
-        </div>
-    </footer>
+            </section>
+        </main>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
