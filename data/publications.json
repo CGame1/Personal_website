@@ -1,1 +1,83 @@
-[]
+[
+  {
+    "title": "Deep Blueprint: A Literature Review and Guide to Automated Image Classification for Ecologists",
+    "author": "Chloe Amanda Game and Nils Piechaud and Kerry Howell",
+    "publication": "AUTHOR_PUBLICATION_ENTRY",
+    "year": 2025,
+    "eprint_url": "https://www.biorxiv.org/content/10.1101/2025.11.03.686223.abstract",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Machine learning for non-experts: A more accessible and simpler approach to automatic benthic habitat classification",
+    "author": "Chloe A Game and Michael B Thompson and Graham D Finlayson",
+    "publication": "Ecological Informatics",
+    "year": 2024,
+    "eprint_url": "https://www.sciencedirect.com/science/article/pii/S1574954124001614",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Report on the Marine Imaging Workshop 2022",
+    "author": "Catherine Borremans and Jennifer Durden and Timm Schoening and Emma Curtis and Luther Adams and Alexandra Branzan Albu and Aurélien Arnaubec and Sakina-Dorothée Ayata and Reshma Baburaj and Corinne Bassin and Miriam Beck and Katharine Bigham and Rachel Boschen-Rose and Chad Collett and Matteo Contini and Paulo Correa and Carlos Dominguez-Carrió and Gautier Dreyfus and Graeme Duncan and Maxime Ferrera and Valentin Foulon and Ariell Friedman and Santosh Gaikwad and Chloe Game and Adriana Gaytán-Caballero and Fanny Girard and Michela Giusti and Mélissa Hanafi-Portier and Kerry Howell and Iryna Hulevata and Kiamuke Itiowe and Chris Jackett and Jan Jansen and Clarissa Karthäuser and Kakani Katija and Maxime Kernec and Gabriel Kim and Marcelo Kitahara and Daniel Langenkämper and Tim Langlois and Nadine Lanteri and Claude Jianping Li and Qi-Ran Li and Pierre-Olivier Liabot and Dhugal Lindsay and Ali Loulidi and Yann Marcon and Simone Marini and Ashley Marranzino and Miquel Massot-Campos and Marjolaine Matabos and Lenaick Menot and Bernabé Moreno and Marcus Morrissey and David Nakath and Tim Nattkemper and Monika Neufeld and Matthias Obst and Karine Olu and Alexa Parimbelli and Francesca Pasotti and Dominique Pelletier and Margaux Perhirin and Nils Piechaud and Oscar Pizarro and Autun Purser and Clara Rodrigues and Elena Ceballos Romero and Brian Schlining and Yifan Song and Heidi Sosik and Marc Sourisseau and Bastien Taormina and Jan Taucher and Blair Thornton and Loïc Van Audenhaege and Charles von der Meden and Guillaume Wacquet and Jack Williams and Kea Witting and Martin Zurowietz",
+    "publication": "Research Ideas and Outcomes",
+    "year": 2024,
+    "eprint_url": "https://riojournal.com/article/119782/download/pdf/",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Weibull Tone Mapping (WTM) for the enhancement of underwater imagery",
+    "author": "Chloe Amanda Game and Michael Barry Thompson and Graham David Finlayson",
+    "publication": "Sensors",
+    "year": 2023,
+    "eprint_url": "https://www.mdpi.com/1424-8220/23/7/3533",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Domain-inspired image processing and computer vision to support deep-sea benthic ecology",
+    "author": "Chloe Game",
+    "publication": "AUTHOR_PUBLICATION_ENTRY",
+    "year": 2022,
+    "eprint_url": "https://ueaeprints.uea.ac.uk/id/eprint/93971/",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Chromatic Weibull Tone Mapping for Underwater Image Enhancement",
+    "author": "Chloe A Game and Michael B Thompson and Graham D Finlayson",
+    "publication": "AUTHOR_PUBLICATION_ENTRY",
+    "year": 2021,
+    "eprint_url": "https://ueaeprints.uea.ac.uk/id/eprint/81310/",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "Weibull Tone Mapping for Underwater Imagery",
+    "author": "Chloe A Game",
+    "publication": "Color and Imaging Conference",
+    "year": 2020,
+    "eprint_url": "https://library.imaging.org/cic/articles/28/1/art00025",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "A framework for the development of a global standardised marine taxon reference image database (SMarTaR-ID) to support image-based analyses",
+    "author": "Kerry L Howell and Jaime S Davies and A Louise Allcock and Andreia Braga-Henriques and Pål Buhl-Mortensen and Marina Carreiro-Silva and Carlos Dominguez-Carrió and Jennifer M Durden and Nicola L Foster and Chloe A Game and Becky Hitchin and Tammy Horton and Brett Hosking and Daniel OB Jones and Christopher Mah and Claire Laguionie Marchais and Lenaick Menot and Telmo Morato and Tabitha RR Pearman and Nils Piechaud and Rebecca E Ross and Henry A Ruhl and Hanieh Saeedi and Paris V Stefanoudis and Gerald H Taranto and Michael B Thompson and James R Taylor and Paul Tyler and Johanne Vad and Lissette Victorero and Rui P Vieira and Lucy C Woodall and Joana R Xavier and Daniel Wagner",
+    "publication": "PLoS One",
+    "year": 2019,
+    "eprint_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0218904",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
+    "title": "The effect of deep oceanic flushing on water properties and ecosystem functioning within atolls in the British Indian Ocean Territory",
+    "author": "Emma V Sheehan and Phil Hosegood and Chloe A Game and Martin J Attrill and David Tickler and Marianne Wootton and David G Johns and Jessica J Meeuwig",
+    "publication": "Frontiers in Marine Science",
+    "year": 2019,
+    "eprint_url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2019.00512/full?utm_source=Email_to_authors_&utm_medium=Email&utm_content=T1_11.5e1_author&utm_campaign=Email_publication&field=&journalName=Frontiers_in_Marine_Science&id=469047",
+    "doi": "",
+    "arxiv_id": ""
+  }
+]
