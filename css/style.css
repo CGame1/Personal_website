@@ -148,6 +148,90 @@ section:last-child {
     border: 3px solid var(--accent-color); /* Optional accent border */
 }
 
+/* Sidebar layout */
+.site-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+    padding: 28px 18px;
+    background: #0f1720;
+    color: #fff;
+}
+
+.site-content {
+    margin-left: 260px;
+}
+
+.sidebar-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 12px;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+}
+
+.sidebar-name {
+    text-align: center;
+    margin: 8px 0;
+    font-weight: 700;
+}
+
+.sidebar-role {
+    text-align: center;
+    color: #9fb0d6;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.sidebar-nav a {
+    color: #cfe3ff;
+    display: block;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+.sidebar-links {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Hide redundant hero image on wide screens */
+.hero-image {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .site-sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .site-content {
+        margin-left: 0;
+    }
+
+    .hero-image {
+        display: block;
+        margin-top: 18px;
+        text-align: center;
+    }
+
+    .sidebar-photo {
+        margin: 0 auto 8px;
+    }
+}
 
 /* Publications */
 .pub-list {
