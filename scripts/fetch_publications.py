@@ -6,11 +6,54 @@ This script is intended for use in GitHub Actions (CI) only.
 import argparse
 import json
 import time
+import sys
 from scholarly import scholarly
+from scholarly import ProxyGenerator
+
+
+def setup_proxy(verbose=False):
+    """Try to configure a ProxyGenerator (free proxies). Return True if configured."""
+    try:
+        pg = ProxyGenerator()
+        ok = pg.FreeProxies()
+        if ok:
+            scholarly.use_proxy(pg)
+            if verbose:
+                print("[info] Using free proxy generator for scholarly")
+            return True
+        else:
+            if verbose:
+                print("[warning] ProxyGenerator.FreeProxies() returned False — continuing without proxy")
+    except Exception as e:
+        if verbose:
+            print(f"[warning] Proxy setup failed: {e}")
+    return False
+
+
+def retry_search_author_id(scholar_id, max_attempts=5, verbose=False):
+    """Attempt to call scholarly.search_author_id with retries and exponential backoff."""
+    for attempt in range(1, max_attempts + 1):
+        try:
+            if verbose:
+                print(f"[info] Attempting to fetch author (attempt {attempt}/{max_attempts})")
+            return scholarly.search_author_id(scholar_id)
+        except Exception as e:
+            if attempt == max_attempts:
+                if verbose:
+                    print(f"[error] search_author_id failed after {max_attempts} attempts: {e}")
+                raise
+            wait = 5 * attempt
+            if verbose:
+                print(f"[warning] search_author_id failed (attempt {attempt}): {e}. Retrying in {wait}s...")
+            time.sleep(wait)
+
 
 def fetch_publications(scholar_id, verbose=False):
-    # Get author and initial publications list
-    author = scholarly.search_author_id(scholar_id)
+    # Try to set up a proxy first (helps in CI environments)
+    setup_proxy(verbose=verbose)
+
+    # Get author and initial publications list (with retries)
+    author = retry_search_author_id(scholar_id, max_attempts=6, verbose=verbose)
     author = scholarly.fill(author, sections=['publications'])
     publications_raw = author.get('publications', [])
     if verbose:
@@ -65,7 +108,7 @@ def fetch_publications(scholar_id, verbose=False):
         pubs.append(entry)
 
         # polite delay to reduce rate-limiting / blocking risk
-        time.sleep(1.0)
+        time.sleep(2.0)
 
     return pubs
 
@@ -77,7 +120,13 @@ def main():
     parser.add_argument('--verbose', action='store_true', help='Enable verbose logging')
     args = parser.parse_args()
 
-    pubs = fetch_publications(args.scholar_id, verbose=args.verbose)
+    try:
+        pubs = fetch_publications(args.scholar_id, verbose=args.verbose)
+    except Exception as e:
+        print(f"[error] Failed to fetch publications: {e}")
+        # If fetch fails in CI, attempt to preserve existing file (if any) and exit non-zero
+        sys.exit(1)
+
     # Ensure reverse chronological order by year then title
     pubs = sorted(pubs, key=lambda x: (-x.get('year', 0), x.get('title', '')))
 
