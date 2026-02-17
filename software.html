@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Software & GitHub — Chloe Game</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header class="top-header">
         <div class="container header-inner">
             <div class="header-left">
                 <div style="display:flex;align-items:center;gap:0.75rem">
-                    <img src="data/photo_prof.jpg" alt="Chloe Game" class="header-photo" loading="lazy" decoding="async">
+                    <img src="data/photo_prof.jpg" alt="Chloe Game" class="header-photo" loading="lazy"
+                        decoding="async">
                     <h1 class="site-title" style="margin:0"><a href="index.html">Chloe Game</a></h1>
                 </div>
             </div>
@@ -27,23 +30,161 @@
     </header>
 
     <main>
-        <section id="software-github">
+
+        <section id="software">
             <div class="container">
-                <h2>🛠️ Software & GitHub</h2>
-<!--                 <p>At Gardline I developed production-ready pipelines for seabed imagery processing, automated annotation tools and trained models for habitat classification. See code and projects on <a href="https://github.com/chloegame" target="_blank" rel="noopener noreferrer">GitHub</a>. Relevant repositories and demos will be listed on this page as curated links.</p>
-                <ul class="repo-list">
-                    <li><a href="https://github.com/chloegame/sea-monitoring" target="_blank" rel="noopener noreferrer">sea-monitoring — automated seabed monitoring pipelines</a></li>
-                    <li><a href="https://github.com/chloegame/weibull-tone-mapping" target="_blank" rel="noopener noreferrer">weibull-tone-mapping — image enhancement tools & demos</a></li>
-                    <li><a href="https://github.com/chloegame/deep-blueprint" target="_blank" rel="noopener noreferrer">deep-blueprint — literature review & example code</a></li>
-                </ul> -->
+                <h2>Github</h2>
+
+            </div>
+        </section>
+
+        <section id="software">
+            <div class="container">
+                <h2>Software Development</h2>
+
+                <!-- Software Development Experience -->
+                <div style="margin-top: 2rem;">
+                    <div
+                        style="background: linear-gradient(180deg, rgba(103,208,255,0.05), rgba(123,227,168,0.02)); border: 1px solid rgba(103,208,255,0.08); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.8rem;">🛠️</div>
+                            <div style="flex: 1;">
+
+                                <p style="margin: 0 0 0.75rem 0; color: var(--muted); font-weight: 600;">Gardline Ltd.,
+                                    Aug 2022 – Jun 2024</p>
+                                <p style="margin: 0; color: var(--text); line-height: 1.6;">During my Data Scientist
+                                    role, I self-trained in software development and built a suite of internal desktop
+                                    tools to automate reporting workflows and environmental data processing. <span
+                                        style="color: var(--muted);"><i>Note: These tools are not publicly
+                                            available.</i></span></p>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack -->
+                        <div
+                            style="margin-top: 1.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                            <div>
+                                <p
+                                    style="margin: 0 0 0.5rem 0; color: var(--accent); font-weight: 700; font-size: 0.9rem;">
+                                    Front End</p>
+                                <p style="margin: 0; color: var(--muted);">Windows Presentation Foundation (WPF) using
+                                    XAML</p>
+                            </div>
+                            <div>
+                                <p
+                                    style="margin: 0 0 0.5rem 0; color: var(--accent); font-weight: 700; font-size: 0.9rem;">
+                                    Back End</p>
+                                <p style="margin: 0; color: var(--muted);">C# and Python</p>
+                            </div>
+                            <div>
+                                <p
+                                    style="margin: 0 0 0.5rem 0; color: var(--accent); font-weight: 700; font-size: 0.9rem;">
+                                    Packaging & Deployment</p>
+                                <p style="margin: 0; color: var(--muted);">WiX Toolset for Windows installers</p>
+                            </div>
+                            <div>
+                                <p
+                                    style="margin: 0 0 0.5rem 0; color: var(--accent); font-weight: 700; font-size: 0.9rem;">
+                                    Additional GUI Work</p>
+                                <p style="margin: 0; color: var(--muted);">Python (tkinter)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Projects -->
+                    <h3 style="color: var(--text); margin-top: 2.5rem; margin-bottom: 1.5rem;">Selected Internal Tools
+                    </h3>
+
+
+
+                    <!-- CRaBS -->
+                    <div class="software-card">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
+                       
+                            <h4 style="margin: 0; color: var(--text); font-size: 1.1rem;">CRaBS - Collection of Random
+                                Beneficial Softwares</h4>
+                        </div>
+                        <p style="margin: 0 0 0.8rem 0; color: var(--muted); font-size: 0.95rem;">A suite of utilities
+                            supporting environmental data workflows</p>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: var(--muted); list-style: none;">
+                            <li style="margin-bottom: 0.4rem;"><strong style="color: var(--text);">FileSync
+                                    Checker:</strong> Verified integrity and completeness of large file transfers.</li>
+                            <li style="margin-bottom: 0.4rem;"><strong style="color: var(--text);">Image
+                                    Classifier:</strong> Ran trained machine learning models to classify benthic habitat
+                                imagery.</li>
+                            <li><strong style="color: var(--text);">Timestamp Detector:</strong> Extracted timestamps
+                                from images and video frames using the <a
+                                    href="https://tesseract-ocr.github.io/">Tesseract OCR engine.</a></li>
+                        </ul>
+                    </div>
+
+                    
+                    <!-- Image Processing Tools -->
+                    <div class="software-card">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
+                     
+                            <h4 style="margin: 0; color: var(--text); font-size: 1.1rem;">Various Image Processing Tools
+                            </h4>
+                        </div>
+                        <p style="margin: 0; color: var(--muted); line-height: 1.6;">Developed interactive GUIs for
+                            image enhancement to support image analysis, including tone mapping curves for manual
+                            manipulation, <a href="https://www.mdpi.com/1424-8220/23/7/3533" target="_blank"
+                                rel="noopener noreferrer">Weibull adjustments</a> and CLAHE
+                            contrast enhancement.</p>
+                    </div>
+
+                    <!-- AnELiDa -->
+                    <div class="software-card">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
+                         
+                            <h4 style="margin: 0; color: var(--text); font-size: 1.1rem;">AnELiDa - Analysis,
+                                Enumeration & Liaison of Data</h4>
+                        </div>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: var(--muted); list-style: none;">
+                            <li style="margin-bottom: 0.4rem;">Automated cleaning, validation, analysis and formatting of
+                                biological datasets (eDNA, zooplankton, phytoplankton, macrofauna). Integrated with the <a href="https://www.marinespecies.org/rest/">WoRMS taxonomy API</a>
+                                to check and correct species names.</li>
+                        </ul>
+                    </div>
+
+                    <!-- ChemERA -->
+                    <div class="software-card">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
+                           
+                            <h4 style="margin: 0; color: var(--text); font-size: 1.1rem;">ChemERA - </h4>
+                        </div> 
+                        <p style="margin: 0; color: var(--muted); line-height: 1.6;">Automated processing of chemistry and sediment particle size datasets, generating formatted tabular outputs and visualizations for reporting.</p>
+                    </div>
+
+                    <!-- CPIG -->
+                    <div class="software-card">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem;">
+                           
+                            <h4 style="margin: 0; color: var(--text); font-size: 1.1rem;">CPIG - Computerized Photoplate
+                                Information Generator</h4>
+                        </div>
+                        <p style="margin: 0; color: var(--muted); line-height: 1.6;">Loaded environmental survey images,
+                            paired with relevant metadata, and formatted into PDFs for inclusion in technical reports.</p>
+                    </div>
+
+
+
+                </div>
+
             </div>
         </section>
     </main>
 
-        <div id="site-footer"></div>
+
+
+
+
+
+    <div id="site-footer"></div>
 
 
     <script src="js/main.js"></script>
     <script src="js/load-footer.js" defer></script>
 </body>
+
 </html>

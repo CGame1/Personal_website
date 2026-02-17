@@ -160,4 +160,29 @@ a:focus, button:focus { outline: 3px solid rgba(103,208,255,0.14); outline-offse
     .timeline-date { margin-top:0.5rem; }
 }
 
+/* Software cards */
+.software-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+    border: 1px solid rgba(103,208,255,0.06);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.software-card:hover {
+    border-color: rgba(103,208,255,0.12);
+    background: linear-gradient(180deg, rgba(103,208,255,0.03), rgba(123,227,168,0.01));
+    box-shadow: 0 4px 12px rgba(103,208,255,0.08);
+}
+
+.software-card h4 {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.software-card:hover h4 {
+    color: var(--accent-2);
+}
+
 /* End of stylesheet */
