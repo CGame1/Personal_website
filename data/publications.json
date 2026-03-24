@@ -1,5 +1,14 @@
 [
   {
+    "title": "Breaking Barriers in Automated Image Analysis: A Case Study of Deep-Sea Biotopes.",
+    "author": "Chloe Game and Nils Piechaud and Kerry Howell",
+    "publication": "2026 Ocean Sciences Meeting",
+    "year": 2026,
+    "eprint_url": "https://scholar.google.com/scholar?cluster=2738441193643228340&hl=en&oi=scholarr",
+    "doi": "",
+    "arxiv_id": ""
+  },
+  {
     "title": "Deep Blueprint: A Literature Review and Guide to Automated Image Classification for Ecologists",
     "author": "Chloe Amanda Game and Nils Piechaud and Kerry Howell",
     "publication": "AUTHOR_PUBLICATION_ENTRY",
@@ -76,7 +85,7 @@
     "author": "Emma V Sheehan and Phil Hosegood and Chloe A Game and Martin J Attrill and David Tickler and Marianne Wootton and David G Johns and Jessica J Meeuwig",
     "publication": "Frontiers in Marine Science",
     "year": 2019,
-    "eprint_url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2019.00512/full?utm_source=Email_to_authors_&utm_medium=Email&utm_content=T1_11.5e1_author&utm_campaign=Email_publication&field=&journalName=Frontiers_in_Marine_Science&id=469047",
+    "eprint_url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2019.00512/full?utm_source\\x3dEmail_to_authors_\\x26utm_medium\\x3dEmail\\x26utm_content\\x3dT1_11.5e1_author\\x26utm_campaign\\x3dEmail_publication\\x26field\\x3d\\x26journalName\\x3dFrontiers_in_Marine_Science\\x26id\\x3d469047",
     "doi": "",
     "arxiv_id": ""
   }
